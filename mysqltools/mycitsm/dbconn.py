@@ -3,38 +3,20 @@
 import MySQLdb
 import ConfigParser
 import endecrypt
-#config = ConfigParser.ConfigParser()
-#cfgfile = open('/var/www/site/mycitsm/mycitsm/login.cnf', 'r')
-#config.readfp(cfgfile)
-#admin_user = config.get('mysqllogin', 'admin_user')
-#admin_passwd = endecrypt.endeCrypt.decrypt(config.get('mysqllogin', 'admin_passwd'))
-#dev_user = config.get('mysqllogin', 'dev_user')
-#dev_passwd = endecrypt.endeCrypt.decrypt(config.get('mysqllogin', 'dev_passwd'))
-#test_user = config.get('mysqllogin', 'test_user')
-#test_passwd = endecrypt.endeCrypt.decrypt(config.get('mysqllogin', 'test_passwd'))
-#uat_user = config.get('mysqllogin', 'uat_user')
-#uat_passwd = endecrypt.endeCrypt.decrypt(config.get('mysqllogin', 'uat_passwd'))
-#product_user = config.get('mysqllogin', 'product_user')
-#product_passwd = endecrypt.endeCrypt.decrypt(config.get('mysqllogin', 'product_passwd'))
-#mysqluploaddb_site_user = config.get('mysqllogin', 'mysqluploaddb_site_user')
-#mysqluploaddb_site_passwd = endecrypt.endeCrypt.decrypt(config.get('mysqllogin', 'mysqluploaddb_site_passwd'))
-#sqlmonitordb_user = config.get('mysqllogin', 'sqlmonitordb_user')
-#sqlmonitordb_passwd = endecrypt.endeCrypt.decrypt(config.get('mysqllogin', 'sqlmonitordb_passwd'))
-#mysql_aes_encrypt_key = endecrypt.endeCrypt.decrypt(config.get('key', 'mysql_aes_encrypt_key'))
-admin_user='root'
-admin_passwd='123'
-dev_user='root'
-dev_passwd='123'
-test_user='root'
-test_passwd='123'
-uat_user='root'
-uat_passwd='123'
-product_user='root'
-product_passwd='123'
-mysqluploaddb_site_user='root'
-mysqluploaddb_site_passwd='123'
-sqlmonitordb_user='root'
-sqlmonitordb_passwd='123'
+
+config = ConfigParser.ConfigParser()
+cfgfile = open('/var/www/site/mycitsm/mycitsm/login.cnf', 'r')
+config.readfp(cfgfile)
+admin_user = config.get('mysqllogin', 'admin_user')
+admin_passwd = endecrypt.decrypt(config.get('mysqllogin', 'admin_passwd'))
+product_user = config.get('mysqllogin', 'product_user')
+product_passwd = endecrypt.decrypt(config.get('mysqllogin', 'product_passwd'))
+mysqluploaddb_site_user = config.get('mysqllogin', 'mysqluploaddb_site_user')
+mysqluploaddb_site_passwd = endecrypt.decrypt(config.get('mysqllogin', 'mysqluploaddb_site_passwd'))
+sqlmonitordb_user = config.get('mysqllogin', 'sqlmonitordb_user')
+sqlmonitordb_passwd = endecrypt.decrypt(config.get('mysqllogin', 'sqlmonitordb_passwd'))
+mysql_aes_encrypt_key = endecrypt.decrypt(config.get('key', 'mysql_aes_encrypt_key'))
+
 
 def getConn(host, port, dbname, env = ''):
     conn = ''

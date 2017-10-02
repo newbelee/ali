@@ -46,6 +46,7 @@ urlpatterns += patterns('mycitsm.views',
     url(r'^serveradmin/getdbserverinfo/$','getdbserverinfo'),
 
     url(r'^serveradmin/dbserverinfo/envtype=([^/]+)&host=([^/]+)&cluseraddress=([^/]+)/$','dbserverdetail'),
+    url(r'^serveradmin/adddbserverinfo/$','adddbserverinfo'),
     url(r'^serveradmin/dbserverinfo/serverstatus/envtype=([^/]+)&host=([^/]+)/$','viewserverstatus'),
     url(r'^serveradmin/dbserverinfo/serverstatus/killprocessid/$','killprocessid'),
     url(r'^serveradmin/dbserverinfo/slavestatus/envtype=([^/]+)&host=([^/]+)/$','viewslavestatus'),
